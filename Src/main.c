@@ -155,19 +155,19 @@ int main(void)
 	last_gyro_x_angle = 0;
 	last_gyro_y_angle = 0;
 	last_gyro_z_angle = 0;
-	accel_vel_x = 0;
-	accel_vel_y = 0;
-	accel_vel_z = 0;
-	accel_pos_x = 0;
-	accel_pos_y = 0;
-	accel_pos_z = 0;
-	last_accel_vel_x = 0;
-	last_accel_vel_y = 0;
-	last_accel_vel_z = 0;
-	last_accel_pos_x = 0;
-	last_accel_pos_y = 0;
-	last_accel_pos_z = 0;
-	prumer = 0;
+//	accel_vel_x = 0;
+//	accel_vel_y = 0;
+//	accel_vel_z = 0;
+//	accel_pos_x = 0;
+//	accel_pos_y = 0;
+//	accel_pos_z = 0;
+//	last_accel_vel_x = 0;
+//	last_accel_vel_y = 0;
+//	last_accel_vel_z = 0;
+//	last_accel_pos_x = 0;
+//	last_accel_pos_y = 0;
+//	last_accel_pos_z = 0;
+//	prumer = 0;
   /* USER CODE END 2 */
  
 
@@ -181,41 +181,40 @@ int main(void)
 		Prumer_hodnot();
 		Cali_Podminky();
 		
-		t_now = HAL_GetTick();
 		dt =(t_now -  last_read_time)/1000.0; //delí se kvuli "prechodu" na mikro sec.	
 		
 		gyro_angle_x = gyro_angle_x + (((gyrox + last_gyro_x_angle)*dt)/2);
     gyro_angle_y = gyro_angle_y + (((gyroy+ last_gyro_y_angle)*dt)/2);
 		gyro_angle_z = gyro_angle_z + (((gyroz + last_gyro_z_angle)*dt)/2);
 
-		Accel_samples_x [sample_count]= accelerationx;
-		sample_count = (sample_count+1)%count;
-		
-		for (uint16_t i = 0; i <count; i++)
-		{
-			prumer = prumer + Accel_samples_x [sample_count];
-		}
-	
-		prumer = prumer / count;
-		//if (prumer == 0)
-			//accel_vel_x = 0;
- 		
+//		Accel_samples_x [sample_count]= accelerationx;
+//		sample_count = (sample_count+1)%count;
+//		
+//		for (uint16_t i = 0; i <count; i++)
+//		{
+//			prumer = prumer + Accel_samples_x [sample_count];
+//		}
+//	
+//		prumer = prumer / count;
+//		//if (prumer == 0)
+//			//accel_vel_x = 0;
+// 		
 
-		accel_vel_x = accel_vel_x + (((accelerationx + last_accel_vel_x)*dt)/2);
-		if (accel_vel_x !=0)
-		accel_pos_x = accel_pos_x + (((accel_vel_x + last_accel_pos_x)*dt)/2);
-		
-		accel_vel_y = accel_vel_y + (((accelerationy + last_accel_vel_y)*dt)/2);
-		if (accel_vel_y !=0)
-		accel_pos_y = accel_pos_y + (((accel_vel_y + last_accel_pos_y)*dt)/2);
-		
-		accel_vel_z = accel_vel_z + (((accelerationz + last_accel_vel_z)*dt)/2);
-		if (accel_vel_z !=0)
-		accel_pos_z = accel_pos_z + (((accel_vel_z + last_accel_pos_z)*dt)/2);
+//		accel_vel_x = accel_vel_x + (((accelerationx + last_accel_vel_x)*dt)/2);
+//		if (accel_vel_x !=0)
+//		accel_pos_x = accel_pos_x + (((accel_vel_x + last_accel_pos_x)*dt)/2);
+//		
+//		accel_vel_y = accel_vel_y + (((accelerationy + last_accel_vel_y)*dt)/2);
+//		if (accel_vel_y !=0)
+//		accel_pos_y = accel_pos_y + (((accel_vel_y + last_accel_pos_y)*dt)/2);
+//		
+//		accel_vel_z = accel_vel_z + (((accelerationz + last_accel_vel_z)*dt)/2);
+//		if (accel_vel_z !=0)
+//		accel_pos_z = accel_pos_z + (((accel_vel_z + last_accel_pos_z)*dt)/2);
 			
 		set_last_read_angle_data(t_now, accelerationx, accelerationy, accelerationz, accel_vel_x, accel_vel_y, accel_vel_z, gyrox, gyroy, gyroz);
 				
-		size = sprintf((char *)Data,"Data:%.2f:%.2f:%.2f:%.2f:%.2f:%.2f\r\n", accel_pos_x, accel_pos_y, accel_pos_z, gyro_angle_x, gyro_angle_y, gyro_angle_z);      
+		size = sprintf((char *)Data,"Data:%.2f:%.2f:%.2f\r\n", gyro_angle_x, gyro_angle_y, gyro_angle_z);      
 		
 		HAL_UART_Transmit(&huart2, Data, size, 100);
 		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);

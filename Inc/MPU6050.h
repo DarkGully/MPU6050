@@ -74,7 +74,8 @@ extern float gyrox, gyroy, gyroz;
 extern float Accel_samples_x[20];
 extern uint8_t sample_count;
 extern uint8_t prumer;
-
+extern float dt;
+extern unsigned long t_now;
 //TypeDefs and Enums
 //1- MPU Configuration 
 typedef struct

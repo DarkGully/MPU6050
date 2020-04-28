@@ -300,17 +300,17 @@ void MPU6050_Cali(void)
 	uint16_t Gyro_max_y = 0;
 	uint16_t Gyro_max_z = 0;
 
-	uint16_t Accel_min_x = 0;
-	uint16_t Accel_min_y = 0;
-	uint16_t Accel_min_z = 0;
-	
-	uint16_t Accel_max_x = 0;
-	uint16_t Accel_max_y = 0;
-	uint16_t Accel_max_z = 0;
-	
-	accelerationx = 0;
-	accelerationy = 0;
-	accelerationz = 0;
+//	uint16_t Accel_min_x = 0;
+//	uint16_t Accel_min_y = 0;
+//	uint16_t Accel_min_z = 0;
+//	
+//	uint16_t Accel_max_x = 0;
+//	uint16_t Accel_max_y = 0;
+//	uint16_t Accel_max_z = 0;
+//	
+//	accelerationx = 0;
+//	accelerationy = 0;
+//	accelerationz = 0;
 	
 	gyrox = 0;
 	gyrox = 0;
@@ -350,13 +350,13 @@ void MPU6050_Cali(void)
 		Cali_Buffer_Gyro_ymax[i] = gyroy;
 		Cali_Buffer_Gyro_zmax[i] = gyroz;
 		
-		Cali_Buffer_Accel_xmin[i] = accelerationx;
-		Cali_Buffer_Accel_ymin[i] = accelerationy;
-		Cali_Buffer_Accel_zmin[i] = accelerationz;
-		
-		Cali_Buffer_Accel_xmax[i] = accelerationx;
-		Cali_Buffer_Accel_ymax[i] = accelerationy;
-		Cali_Buffer_Accel_zmax[i] = accelerationz;	
+//		Cali_Buffer_Accel_xmin[i] = accelerationx;
+//		Cali_Buffer_Accel_ymin[i] = accelerationy;
+//		Cali_Buffer_Accel_zmin[i] = accelerationz;
+//		
+//		Cali_Buffer_Accel_xmax[i] = accelerationx;
+//		Cali_Buffer_Accel_ymax[i] = accelerationy;
+//		Cali_Buffer_Accel_zmax[i] = accelerationz;	
 	}
 		
 	for (uint16_t i = 0; i <Pocet_Testu; i++)
@@ -375,19 +375,19 @@ void MPU6050_Cali(void)
     if (Cali_Buffer_Gyro_zmax[i] > Cali_Buffer_Gyro_zmax[Gyro_max_z])
 			Gyro_max_z = i;
 		
-		if (Cali_Buffer_Accel_xmin[i] < Cali_Buffer_Accel_xmin[Accel_min_x])
-			Accel_min_x = i;			
-    if (Cali_Buffer_Accel_ymin[i] < Cali_Buffer_Accel_ymin[Accel_min_y])
-			Accel_min_y = i;	
-    if (Cali_Buffer_Accel_zmin[i] < Cali_Buffer_Accel_zmin[Accel_min_z])
-			Accel_min_z = i;
-		
-    if (Cali_Buffer_Accel_xmax[i] > Cali_Buffer_Accel_xmax[Accel_max_x])
-			Accel_max_x = i;			
-    if (Cali_Buffer_Accel_ymax[i] > Cali_Buffer_Accel_ymax[Accel_max_y])
-			Accel_max_y = i;	
-    if (Cali_Buffer_Accel_zmax[i] > Cali_Buffer_Accel_zmax[Accel_max_z])
-			Accel_max_z = i;
+//		if (Cali_Buffer_Accel_xmin[i] < Cali_Buffer_Accel_xmin[Accel_min_x])
+//			Accel_min_x = i;			
+//    if (Cali_Buffer_Accel_ymin[i] < Cali_Buffer_Accel_ymin[Accel_min_y])
+//			Accel_min_y = i;	
+//    if (Cali_Buffer_Accel_zmin[i] < Cali_Buffer_Accel_zmin[Accel_min_z])
+//			Accel_min_z = i;
+//		
+//    if (Cali_Buffer_Accel_xmax[i] > Cali_Buffer_Accel_xmax[Accel_max_x])
+//			Accel_max_x = i;			
+//    if (Cali_Buffer_Accel_ymax[i] > Cali_Buffer_Accel_ymax[Accel_max_y])
+//			Accel_max_y = i;	
+//    if (Cali_Buffer_Accel_zmax[i] > Cali_Buffer_Accel_zmax[Accel_max_z])
+//			Accel_max_z = i;
   }
 	
 	Cali_Data.Gyro_x_min = Cali_Buffer_Gyro_xmax[Gyro_min_x];
@@ -398,13 +398,13 @@ void MPU6050_Cali(void)
 	Cali_Data.Gyro_y_max = Cali_Buffer_Gyro_ymax[Gyro_max_y];
 	Cali_Data.Gyro_z_max = Cali_Buffer_Gyro_zmax[Gyro_max_z];
 
-	Cali_Data.Accel_x_min = Cali_Buffer_Accel_xmax[Accel_min_x];
-	Cali_Data.Accel_y_min = Cali_Buffer_Accel_ymax[Accel_min_y];
-	Cali_Data.Accel_z_min = Cali_Buffer_Accel_zmax[Accel_min_z];
-	
-	Cali_Data.Accel_x_max = Cali_Buffer_Accel_xmax[Accel_max_x];
-	Cali_Data.Accel_y_max = Cali_Buffer_Accel_ymax[Accel_max_y];
-	Cali_Data.Accel_z_max = Cali_Buffer_Accel_zmax[Accel_max_z];
+//	Cali_Data.Accel_x_min = Cali_Buffer_Accel_xmax[Accel_min_x];
+//	Cali_Data.Accel_y_min = Cali_Buffer_Accel_ymax[Accel_min_y];
+//	Cali_Data.Accel_z_min = Cali_Buffer_Accel_zmax[Accel_min_z];
+//	
+//	Cali_Data.Accel_x_max = Cali_Buffer_Accel_xmax[Accel_max_x];
+//	Cali_Data.Accel_y_max = Cali_Buffer_Accel_ymax[Accel_max_y];
+//	Cali_Data.Accel_z_max = Cali_Buffer_Accel_zmax[Accel_max_z];
 	
 //Stare podminky	
 //		if ((myGyroScaled.x <= 0) && (myGyroScaled.x >= Cali_Data.Gyro_x_max))
@@ -426,38 +426,28 @@ void MPU6050_Cali(void)
 
 void Prumer_hodnot(void)
 {	
-		for (uint16_t i = 0; i <10; i++)
+		for (uint16_t i = 0; i <64; i++)
 	{
 		MPU6050_Get_Accel_Scale(&Cali_Scaled_Data_Accel);
 		MPU6050_Get_Gyro_Scale(&Cali_Scaled_Data_Gyro);
+		t_now = HAL_GetTick();
 		
-		accelerationx_nacteni[i] = Cali_Scaled_Data_Accel.x;
-		accelerationy_nacteni[i] = Cali_Scaled_Data_Accel.y;
-		accelerationz_nacteni[i] = Cali_Scaled_Data_Accel.z;
+//		accelerationx += Cali_Scaled_Data_Accel.x;
+//		accelerationy += Cali_Scaled_Data_Accel.y;
+//		accelerationz += Cali_Scaled_Data_Accel.z;
 		
-		gyrox_nacteni[i] = Cali_Scaled_Data_Gyro.x;
-		gyroy_nacteni[i] = Cali_Scaled_Data_Gyro.y;
-		gyroz_nacteni[i] = Cali_Scaled_Data_Gyro.z;
+		gyrox += Cali_Scaled_Data_Gyro.x;
+		gyroy += Cali_Scaled_Data_Gyro.y;
+		gyroz += Cali_Scaled_Data_Gyro.z;
 	}
 	
-	for (uint16_t i = 0; i <10; i++)
-	{
-		accelerationx = accelerationx + accelerationx_nacteni[i];
-		accelerationy = accelerationy + accelerationy_nacteni[i];
-		accelerationz = accelerationz + accelerationz_nacteni[i];
-		
-		gyrox = gyrox + gyrox_nacteni[i];
-		gyroy = gyroy + gyroy_nacteni[i];
-		gyroz = gyroz + gyroz_nacteni[i];
-	}
+//	accelerationx = accelerationx/10; 
+//	accelerationy = accelerationy/10;
+//	accelerationz = accelerationz/10;
 	
-	accelerationx = accelerationx/10; 
-	accelerationy = accelerationy/10;
-	accelerationz = accelerationz/10;
-	
-	gyrox = gyrox / 10;
-	gyroy = gyroy / 10;
-	gyroz = gyroz / 10;
+	gyrox = gyrox / 64;
+	gyroy = gyroy / 64;
+	gyroz = gyroz / 64;
 }
 
 void Cali_Podminky(void)
@@ -517,54 +507,54 @@ void Cali_Podminky(void)
 				gyroz = 0;
 		}
 
-		//Kalibrace osy x Akcelerometru
-		if ((Cali_Data.Accel_x_min  <= 0) && (Cali_Data.Accel_x_max <= 0)) 
-		{
-			if ((accelerationx <= 0) && (accelerationx >= Cali_Data.Accel_x_min))
-				accelerationx = 0;
-		}
-		if ((Cali_Data.Accel_x_min >= 0) && (Cali_Data.Accel_x_max >= 0)) 
-		{
-			if ((accelerationx >= 0) && (accelerationx <= Cali_Data.Accel_x_max))
-				accelerationx = 0;
-		}
-		if ((Cali_Data.Accel_x_min <= 0) && (Cali_Data.Accel_x_max >= 0))
-		{
-			if ((accelerationx <= Cali_Data.Accel_x_max) && (accelerationx >= Cali_Data.Accel_x_min))
-				accelerationx = 0;
-		}
-		
-		//Kalibrace osy y Akcelerometru
-		if ((Cali_Data.Accel_y_min <= 0) && (Cali_Data.Accel_y_max <= 0)) 
-		{
-			if ((accelerationy <= 0) && (accelerationy >= Cali_Data.Accel_y_min))
-				accelerationy = 0;
-		}
-		if ((Cali_Data.Accel_y_min >= 0) && (Cali_Data.Accel_y_max >= 0)) 
-		{
-			if ((accelerationy >= 0) && (accelerationy <= Cali_Data.Accel_y_max))
-				accelerationy = 0;
-		}
-		if ((Cali_Data.Accel_y_min <= 0) && (Cali_Data.Accel_y_max >= 0))
-		{
-			if ((accelerationy <= Cali_Data.Accel_y_max) && (accelerationy >= Cali_Data.Accel_y_min))
-				accelerationy = 0;
-		}
-		
-		//Kalibrace osy z Akcelerometru
-		if ((Cali_Data.Accel_z_min <= 0) && (Cali_Data.Accel_z_max <= 0)) 
-		{
-			if ((accelerationz <= 0) && (accelerationz >= Cali_Data.Accel_z_min))
-				accelerationz = 0;
-		}
-		if ((Cali_Data.Accel_z_min >= 0) && (Cali_Data.Accel_z_max >= 0)) 
-		{
-			if ((accelerationz >= 0) && (accelerationz <= Cali_Data.Accel_z_max))
-				accelerationz = 0;
-		}
-		if ((Cali_Data.Accel_z_min <= 0) && (Cali_Data.Accel_z_max >= 0))
-		{
-			if ((accelerationz <= Cali_Data.Accel_z_max) && (accelerationz >= Cali_Data.Accel_z_min))
-				accelerationz = 0;
-		}					
+//		//Kalibrace osy x Akcelerometru
+//		if ((Cali_Data.Accel_x_min  <= 0) && (Cali_Data.Accel_x_max <= 0)) 
+//		{
+//			if ((accelerationx <= 0) && (accelerationx >= Cali_Data.Accel_x_min))
+//				accelerationx = 0;
+//		}
+//		if ((Cali_Data.Accel_x_min >= 0) && (Cali_Data.Accel_x_max >= 0)) 
+//		{
+//			if ((accelerationx >= 0) && (accelerationx <= Cali_Data.Accel_x_max))
+//				accelerationx = 0;
+//		}
+//		if ((Cali_Data.Accel_x_min <= 0) && (Cali_Data.Accel_x_max >= 0))
+//		{
+//			if ((accelerationx <= Cali_Data.Accel_x_max) && (accelerationx >= Cali_Data.Accel_x_min))
+//				accelerationx = 0;
+//		}
+//		
+//		//Kalibrace osy y Akcelerometru
+//		if ((Cali_Data.Accel_y_min <= 0) && (Cali_Data.Accel_y_max <= 0)) 
+//		{
+//			if ((accelerationy <= 0) && (accelerationy >= Cali_Data.Accel_y_min))
+//				accelerationy = 0;
+//		}
+//		if ((Cali_Data.Accel_y_min >= 0) && (Cali_Data.Accel_y_max >= 0)) 
+//		{
+//			if ((accelerationy >= 0) && (accelerationy <= Cali_Data.Accel_y_max))
+//				accelerationy = 0;
+//		}
+//		if ((Cali_Data.Accel_y_min <= 0) && (Cali_Data.Accel_y_max >= 0))
+//		{
+//			if ((accelerationy <= Cali_Data.Accel_y_max) && (accelerationy >= Cali_Data.Accel_y_min))
+//				accelerationy = 0;
+//		}
+//		
+//		//Kalibrace osy z Akcelerometru
+//		if ((Cali_Data.Accel_z_min <= 0) && (Cali_Data.Accel_z_max <= 0)) 
+//		{
+//			if ((accelerationz <= 0) && (accelerationz >= Cali_Data.Accel_z_min))
+//				accelerationz = 0;
+//		}
+//		if ((Cali_Data.Accel_z_min >= 0) && (Cali_Data.Accel_z_max >= 0)) 
+//		{
+//			if ((accelerationz >= 0) && (accelerationz <= Cali_Data.Accel_z_max))
+//				accelerationz = 0;
+//		}
+//		if ((Cali_Data.Accel_z_min <= 0) && (Cali_Data.Accel_z_max >= 0))
+//		{
+//			if ((accelerationz <= Cali_Data.Accel_z_max) && (accelerationz >= Cali_Data.Accel_z_min))
+//				accelerationz = 0;
+//		}					
 }
